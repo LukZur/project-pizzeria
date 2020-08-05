@@ -466,13 +466,18 @@
 
     remove(cartProduct) {
       const thisCart = this;
-      // console.log('thisCart', thisCart);
+      // const elm = thisCart.dom.productList;
+      console.log('thisCart', thisCart);
       const index = thisCart.products.indexOf(cartProduct);
-      // console.log('thisCart.products', thisCart.products);
       thisCart.products.splice(index, 1);
-      // console.log('thisCart.products po splice', thisCart.products);
-      // console.log('thisCart.classList', thisCart.classList);
-      thisCart.classList.remove(cartProduct.dom.wrapper);
+      // console.log('thisCart.dom.productList', thisCart.dom.productList);
+      // console.log('this.cartProduct.dom.wrapper', cartProduct.dom.wrapper);
+      // thisCart.dom.productList.classList.remove(cartProduct.dom.wrapper);
+      // console.log('elm.classList', elm.classList);
+      // elm.classList.remove(this.cartProduct.dom.wrapper);
+      // console.log('cartProduct.dom.wrapper', cartProduct.dom.wrapper);
+      cartProduct.dom.wrapper.remove();
+      thisCart.update();
     }
   }
 
