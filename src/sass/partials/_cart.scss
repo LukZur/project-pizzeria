@@ -19,6 +19,10 @@
 
   }
 
+  &.inactive {
+    visibility: hidden;
+  }
+
   &__summary {
     @include flex(row, center, space-between);
     text-transform: uppercase;

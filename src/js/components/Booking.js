@@ -159,7 +159,7 @@ class Booking {
         table.classList.remove(classNames.booking.tableBooked);
       }
     }
-    console.log('booked z updateDOM', thisBooking.booked);
+    // console.log('booked z updateDOM', thisBooking.booked);
   }
 
   render(widgetContainer) {

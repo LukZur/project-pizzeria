@@ -11,7 +11,7 @@ const app = {
     thisApp.navLinks = document.querySelectorAll(select.nav.links);
 
     const idFromHash = window.location.hash.replace('#/', '');
-    // console.log('idFromHash', idFromHash);
+    console.log('idFromHash', idFromHash);
 
     let pageMatchingHash = thisApp.pages[0].id;
 
@@ -54,9 +54,29 @@ const app = {
   activatePage: function (pageId) {
     const thisApp = this;
 
+    const cartContainer = document.querySelector(select.containerOf.cart);
+    const mainNavContainer = document.querySelector(select.containerOf.main_nav);
+    console.log('cartContainer', cartContainer);
     /* add class active to matching pages, remove from non-matching */
     for (let page of thisApp.pages) {
-      page.classList.toggle(classNames.pages.active, page.id == pageId);
+      //Poczatek zmian dla modułu 11.3
+      // page.classList.toggle(classNames.pages.active, page.id == pageId);
+      if (page.id == pageId && pageId == 'main') {
+        page.classList.add(classNames.pages.active, page.id == pageId);
+        page.classList.remove(classNames.pages.active, page.id != pageId);
+        cartContainer.classList.add(classNames.cart.inactive);
+        mainNavContainer.classList.add(classNames.nav.inactive);
+        // console.log('weszlismy w 1 ifa');
+      }
+      else {
+        // console.log('weszlismy w else ifa');
+        page.classList.toggle(classNames.pages.active, page.id == pageId);
+        if (page.id == pageId && pageId != 'main') {
+          cartContainer.classList.remove(classNames.cart.inactive);
+          mainNavContainer.classList.remove(classNames.nav.inactive);
+        }
+      }
+      //Koniec zmian dla modułu 11.3
     }
     /* add class active to matching links, remove from non-matching */
     for (let link of thisApp.navLinks) {
