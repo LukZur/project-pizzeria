@@ -11,7 +11,7 @@ const app = {
     thisApp.navLinks = document.querySelectorAll(select.nav.links);
 
     const idFromHash = window.location.hash.replace('#/', '');
-    console.log('idFromHash', idFromHash);
+    // console.log('idFromHash', idFromHash);
 
     let pageMatchingHash = thisApp.pages[0].id;
 
@@ -23,7 +23,7 @@ const app = {
     }
 
     thisApp.activatePage(/*thisApp.pages[0].id*//*idFromHash*/pageMatchingHash);
-    console.log('pageMatchingHash', pageMatchingHash);
+    // console.log('pageMatchingHash', pageMatchingHash);
 
     for (let link of thisApp.navLinks) {
       link.addEventListener('click', function (event) {
@@ -46,7 +46,7 @@ const app = {
     /* find container of widget for table booking */
     // thisApp.widgetContainer = document.querySelector(select.containerOf.booking);
     const widgetContainer = document.querySelector(select.containerOf.booking);
-    console.log('widgetContainer', widgetContainer);
+    // console.log('widgetContainer', widgetContainer);
     /* create new instance of Booking class */
     thisApp.Booking = new Booking(widgetContainer);
   },
@@ -102,7 +102,7 @@ const app = {
         return rawResponse.json();
       })
       .then(function (parsedResponse) {
-        console.log('parsedResponse', parsedResponse);
+        // console.log('parsedResponse', parsedResponse);
 
         /* save parsedResponse as thisApp.data.products */
         thisApp.data.products = parsedResponse;
@@ -111,7 +111,7 @@ const app = {
         thisApp.initMenu();
       });
 
-    console.log('thisApp.data', JSON.stringify(thisApp.data));
+    // console.log('thisApp.data', JSON.stringify(thisApp.data));
   },
   init: function () {
     const thisApp = this;
