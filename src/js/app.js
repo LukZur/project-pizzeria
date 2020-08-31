@@ -9,6 +9,7 @@ const app = {
 
     thisApp.pages = document.querySelector(select.containerOf.pages).children;
     thisApp.navLinks = document.querySelectorAll(select.nav.links);
+    thisApp.mainLinks = document.querySelectorAll(select.main_links.links);
 
     const idFromHash = window.location.hash.replace('#/', '');
     console.log('idFromHash', idFromHash);
@@ -39,6 +40,22 @@ const app = {
         window.location.hash = '#/' + id;
       });
     }
+
+    //added below for links from main page module 11.3:
+    for (let link of thisApp.mainLinks) {
+      link.addEventListener('click', function (event) {
+        const clickedElement = this;
+        event.preventDefault();
+
+        /* get page id from href attribute */
+        const id = clickedElement.getAttribute('href').replace('#', '');
+        /* run thisApp.activatepage with that id */
+        thisApp.activatePage(id);
+
+        /* change URL hash */
+        window.location.hash = '#/' + id;
+      });
+    }
   },
 
   initBooking: function () {
@@ -56,14 +73,14 @@ const app = {
 
     const cartContainer = document.querySelector(select.containerOf.cart);
     const mainNavContainer = document.querySelector(select.containerOf.main_nav);
-    console.log('cartContainer', cartContainer);
+    // console.log('cartContainer', cartContainer);
     /* add class active to matching pages, remove from non-matching */
     for (let page of thisApp.pages) {
       //Poczatek zmian dla modułu 11.3
       // page.classList.toggle(classNames.pages.active, page.id == pageId);
       if (page.id == pageId && pageId == 'main') {
-        page.classList.add(classNames.pages.active, page.id == pageId);
-        page.classList.remove(classNames.pages.active, page.id != pageId);
+        page.classList.add(classNames.pages.active/*, page.id == pageId*/);
+        // page.classList.remove(classNames.pages.active, page.id != pageId);
         cartContainer.classList.add(classNames.cart.inactive);
         mainNavContainer.classList.add(classNames.nav.inactive);
         // console.log('weszlismy w 1 ifa');

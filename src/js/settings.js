@@ -73,6 +73,9 @@ export const select = {
   nav: {
     links: '.main-nav a',
   },
+  main_links: {
+    links: '.main-links-class',
+  }
   // CODE ADDED END
 };
 
