@@ -1,0 +1,48 @@
+.main-class-container {
+  margin: ($base-size * 3.5) auto;
+  padding: ($base-size * 6) ($base-size * 4);
+  background: $color-light;
+  border-bottom: 1px solid lighten($color-dark, 70%);
+  border-radius: $radius;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 140px;
+  width: 606px;
+
+}
+
+.main-class-container{
+  // background-image: url("../../images/pizza-1.jpg"); /* The image used */
+  // height: 100%; /* You must set a specified height */
+  // background-position: center; /* Center the image */
+  // background-repeat: no-repeat; /* Do not repeat the image */
+  // background-size: cover;
+}
+
+.div-order{
+  background-image: url("../../images/pizza-1.jpg");
+  background-size: cover;
+  height: 100%; /* You must set a specified height */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+}
+
+
+.opening-hours {
+  text-align: center;
+  background-color: rgb(236, 120, 120);
+  padding: 0px 0px;
+  color: $color-light;
+  border: 0;
+  height: 140px;
+
+  .main-string{
+    font-size: x-large;
+    font-weight: bold;
+    padding-top: 25px;
+  }
+}
